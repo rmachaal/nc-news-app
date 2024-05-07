@@ -1,42 +1,66 @@
 #root {
-  max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+header {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 50px;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+h3 {
+  font-size: 3em;
+  line-height: 1.25;
+  text-align: left;
+  margin: 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  border-top: 0.25px solid rgb(168, 168, 168);
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-bottom: 0.25px solid rgb(168, 168, 168);
 }
 
-.card {
-  padding: 2em;
+ul {
+  list-style: none;
 }
 
-.read-the-docs {
-  color: #888;
+p {
+  margin-top: 0;
+  margin-bottom: 0px;
+}
+
+.article-block {
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  text-align: left;
+  max-width: 50vw;
+  margin-bottom: 70px;
+}
+
+.article-block img {
+  border-radius: 15px;
+  width: 45vw;
+  margin-bottom: 15px;
+}
+
+.author-date {
+  color: grey;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.topic {
+  color: rgb(75, 46, 189);
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 1em;
 }
