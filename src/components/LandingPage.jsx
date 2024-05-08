@@ -12,8 +12,6 @@ function LandingPage({ articles, setArticles }) {
       });
   }, []);
 
-  console.log(articles);
-
   return (
     <>
       <ul>
