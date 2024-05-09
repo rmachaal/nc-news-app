@@ -8,6 +8,10 @@ a {
   text-decoration: none;
   color: black;
 }
+a:hover {
+  color: rgb(75, 46, 189);
+  text-decoration: underline;
+}
 
 .header {
   display: flex;
@@ -100,9 +104,22 @@ p {
   margin-bottom: 0px;
 }
 
-p:hover {
-  color: rgb(75, 46, 189);
-  text-decoration: underline;
+.article-filter {
+  margin: 0;
+  padding: 0;
+  padding-top: 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: right;
+  align-items: center;
+  font-weight: 500;
+}
+
+select {
+  width: 150px;
+  height: 20px;
+  margin-left: 5px;
+  margin-right: 10px;
 }
 
 .article-title-individual {
@@ -169,22 +186,22 @@ p:hover {
   margin-top: 30px;
 }
 
-.article-votes{
-display: flex;
-flex-direction: row;
-align-items: center;
-justify-content: right;
+.article-votes {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: right;
 }
 
-.article-vote-button{
-background: transparent;
-width: 30px;
-height: 30px;
-display: flex;
-justify-content: center;
-align-items: center;
-padding: 0;
-margin: 0;
+.article-vote-button {
+  background: transparent;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  margin: 0;
 }
 
 .article-block-small {
