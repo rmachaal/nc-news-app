@@ -15,17 +15,26 @@
 body {
   margin: 0;
 }
+.comment-button{
+  margin-left: auto;
+}
 
 button {
   border-radius: 8px;
   border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
+  margin-top: 10px;
+  padding: 0.6em 0.8em;
+  width: 60px;
+  height: 40px
+  font-size: 0.8em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: #cdcae1;
   transition: border-color 0.25s;
 }
 button:hover {
-  border-color: #646cff;
+  border: 1px solid #3b3f96;
+}
+button:disabled{
+  pointer-events: none;
 }

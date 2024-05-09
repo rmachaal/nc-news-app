@@ -51,6 +51,19 @@ nav {
   border-bottom: 0.25px solid rgb(168, 168, 168);
 }
 
+form {
+  color: black;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  font-size: 0.8em;
+  font-style: italic;
+  padding-top: 10px;
+}
+
+input {
+  height: 30px;
+}
 article {
   width: 60vw;
   margin: 0 auto;
@@ -156,6 +169,24 @@ p:hover {
   margin-top: 30px;
 }
 
+.article-votes{
+display: flex;
+flex-direction: row;
+align-items: center;
+justify-content: right;
+}
+
+.article-vote-button{
+background: transparent;
+width: 30px;
+height: 30px;
+display: flex;
+justify-content: center;
+align-items: center;
+padding: 0;
+margin: 0;
+}
+
 .article-block-small {
   display: flex;
   flex-direction: row;
@@ -234,6 +265,32 @@ p:hover {
   object-fit: cover;
   padding: 3px;
   border: 1px solid grey;
+}
+
+.comments-user-delete {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.comments-delete-button {
+  margin: 0;
+  background-color: transparent;
+  font-size: 0.7em;
+}
+.comments-delete-button:hover {
+  color: rgb(75, 46, 189);
+  text-decoration: underline;
+}
+
+.comment-form {
+  display: flex;
+  flex-direction: column;
+  color: rgb(75, 46, 189);
+  font-size: 0.8em;
+  font-weight: 500;
+  margin-bottom: 10px;
+  text-align: left;
 }
 
 .user-icon {
