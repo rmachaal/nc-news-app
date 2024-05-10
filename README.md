@@ -2,7 +2,7 @@
 
 A frontend user interface designed to interact with my News API, available [here](https://github.com/rmachaal/News-API-Project).
 
-Northcoder's News serves as a social news aggregation, web content rating and discussion website. It features articles categorised into topics, each with user-curated ratings derived from upvotes and downvotes through the API. Users can also contribute comments about specific articles.
+Northcoders' News serves as a social news aggregation, web content rating and discussion website. It features articles categorised into topics, each with user-curated ratings derived from upvotes and downvotes through the API. Users can also contribute comments about specific articles.
 
 ## Deployed App
 
