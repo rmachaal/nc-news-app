@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import formatDate from "../assets/utils";
 import PostComment from "./PostComment";
 import hardcodedUser from "../assets/hardcodedUser";
+import ErrorPage from "./ErrorPage";
 
 function Article({ users }) {
   const { article_id } = useParams();
@@ -13,6 +14,7 @@ function Article({ users }) {
   const [newComment, setNewComment] = useState("");
   const [deleted, setDeleted] = useState(false);
   const [votesError, setVotesError] = useState(false);
+  const [error, setError] = useState(false);
 
   const loggedUser = hardcodedUser.username;
 
@@ -27,14 +29,23 @@ function Article({ users }) {
       `https://news-api-project-hj1l.onrender.com/api/articles/${article_id}/comments`
     );
 
-    Promise.all([fetchArticle, fetchComments]).then((response) => {
-      const { article } = response[0].data;
-      const { comments } = response[1].data;
-      setArticle(article);
-      setComments(comments);
-      setLoading(false);
-    });
+    Promise.all([fetchArticle, fetchComments])
+      .then((response) => {
+        const { article } = response[0].data;
+        const { comments } = response[1].data;
+        setArticle(article);
+        setComments(comments);
+        setLoading(false);
+      })
+      .catch((err) => {
+        setLoading(false);
+        setError(true);
+      });
   }, []);
+
+  if (error) {
+    return <ErrorPage />;
+  }
 
   if (loading) {
     return <h3>Loading ...</h3>;

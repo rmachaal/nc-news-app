@@ -5,8 +5,10 @@ import ArticleBlock from "./ArticleBlock";
 function LandingPage({ articles, setArticles }) {
   const [filter, setFilter] = useState("created_at");
   const [order, setOrder] = useState("DESC");
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
+    setLoading(true);
     axios
       .get(
         `https://news-api-project-hj1l.onrender.com/api/articles?sort_by=${filter}&&order=${order}`
@@ -14,6 +16,7 @@ function LandingPage({ articles, setArticles }) {
       .then((response) => {
         const { articles } = response.data;
         setArticles(articles);
+        setLoading(false);
       });
   }, [filter, order]);
 
@@ -23,6 +26,10 @@ function LandingPage({ articles, setArticles }) {
 
   function handleOrder(e) {
     setOrder(e.target.value);
+  }
+
+  if (loading) {
+    return <h3>Loading ...</h3>;
   }
 
   return (

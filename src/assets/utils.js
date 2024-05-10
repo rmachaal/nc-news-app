@@ -5,4 +5,8 @@ function formatDate(apiDate) {
   return formattedDate;
 }
 
+function fetchTopics() {
+  
+}
+
 export default formatDate
