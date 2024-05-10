@@ -16,14 +16,15 @@ a:hover {
 .header {
   display: flex;
   flex-direction: row;
-  margin-bottom: 30px;
+  margin-bottom: 25px;
+  align-items: center;
   justify-content: space-between;
 }
 
 h1 {
   font-size: 2em;
   line-height: 1.1;
-  margin-bottom: 0;
+  margin: 0;
 }
 
 h1:hover {
@@ -161,7 +162,7 @@ select {
   border-radius: 15px;
   width: 45vw;
   margin-bottom: 15px;
-  filter: grayscale(10);
+  filter: grayscale(70%);
 }
 
 .author-date {
@@ -314,6 +315,7 @@ select {
   display: flex;
   flex-direction: row;
   justify-content: right;
+  align-items: center;
 }
 .user-icon img {
   width: 35px;
@@ -321,5 +323,10 @@ select {
   border-radius: 50px;
   object-fit: cover;
   padding: 5px;
+  margin-right: 5px;
   border: 1px solid grey;
+}
+
+.error-message {
+  color: rgb(197, 13, 13);
 }

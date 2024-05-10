@@ -3,17 +3,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import user from "../assets/hardcodedUser";
 
-function Header() {
-  const [topics, setTopics] = useState([]);
-
-  useEffect(() => {
-    axios
-      .get("https://news-api-project-hj1l.onrender.com/api/topics")
-      .then((response) => {
-        const { topics } = response.data;
-        setTopics(topics);
-      });
-  }, []);
+function Header({ topics, setTopics }) {
 
   return (
     <>
