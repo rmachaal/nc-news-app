@@ -4,6 +4,11 @@
   text-align: center;
 }
 
+body {
+  margin: 0;
+  font-size: 1em;
+}
+
 a {
   text-decoration: none;
   color: black;
@@ -130,6 +135,10 @@ select {
 .article-details-individual {
   display: flex;
   flex-direction: row;
+  align-items: center;
+}
+.article-details-individual p {
+  margin-right: 35px;
 }
 
 .author-date-individual {
@@ -154,7 +163,7 @@ select {
   flex-direction: column;
   justify-content: left;
   text-align: left;
-  max-width: 50vw;
+  max-width: 75vw;
   margin-bottom: 70px;
 }
 
@@ -163,6 +172,14 @@ select {
   width: 45vw;
   margin-bottom: 15px;
   filter: grayscale(70%);
+}
+
+.title-comments-votes {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: baseline;
+  font-weight: 600;
 }
 
 .author-date {
@@ -189,20 +206,20 @@ select {
 
 .article-votes {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
-  justify-content: right;
+  justify-content: left;
 }
 
 .article-vote-button {
   background: transparent;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-right: 5px;
   width: 30px;
   height: 30px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 0;
-  margin: 0;
 }
 
 .article-block-small {
@@ -228,6 +245,7 @@ select {
   color: Black;
   font-size: 1.15em;
   text-decoration: none;
+  width: 50vw;
 }
 .article-title-link {
   font-size: 0.9em;
@@ -329,4 +347,51 @@ select {
 
 .error-message {
   color: rgb(197, 13, 13);
+}
+
+@media screen and (max-width: 768px) {
+  body {
+    font-size: 0.875em;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  body {
+    font-size: 0.45em;
+  }
+  ul {
+    margin: 0;
+  }
+  button {
+    font-size: 0.5em;
+    width: 20px;
+    height: 15px;
+  }
+  input {
+    height: 15px;
+  }
+  .comments-user-icon img {
+    width: 5px;
+    height: 5px;
+    padding: 0px;
+  }
+  .article-block-small {
+    padding: 15px;
+    margin: 0;
+    font-size: 0.7em;
+  }
+  .article-block-small img {
+    width: 100px;
+    height: 100px;
+  }
+  .user-icon img {
+    width: 20px;
+    height: 20px;
+    padding: 3px;
+  }
+  .article-details-individual img {
+    width: 20px;
+    height: 20px;
+    padding: 3px;
+  }
 }

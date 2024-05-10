@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import formatDate from "../assets/utils";
+import { formatDate, findUser } from "../assets/utils";
 import PostComment from "./PostComment";
 import hardcodedUser from "../assets/hardcodedUser";
 import ErrorPage from "./ErrorPage";
@@ -51,10 +51,7 @@ function Article({ users }) {
     return <h3>Loading ...</h3>;
   }
 
-  const userIndex = users.findIndex((user) => {
-    return user.username === article.author;
-  });
-  const user = users[userIndex];
+  const user = findUser(article, users);
 
   function handleDelete(comment_id) {
     setDeleted(true);
@@ -115,12 +112,15 @@ function Article({ users }) {
           </div>
           <div className="article-votes">
             <p>Votes {article.votes}</p>
-            <button className="article-vote-button" onClick={handleIncVote}>
-              👍
-            </button>
-            <button className="article-vote-button" onClick={handleDecVote}>
-              👎
-            </button>
+            <div className="article-vote-button">
+              <button className="article-vote-button" onClick={handleIncVote}>
+                👍
+              </button>
+              <button className="article-vote-button" onClick={handleDecVote}>
+                👎
+              </button>
+            </div>
+
             {votesError && <p>Votes not updated</p>}
           </div>
         </div>
@@ -136,10 +136,7 @@ function Article({ users }) {
           setNewComment={setNewComment}
         />
         {comments.map((comment, index) => {
-          const userIndex = users.findIndex((user) => {
-            return user.username === comment.author;
-          });
-          const user = users[userIndex];
+          const user = findUser(comment, users);
           return (
             <div key={index} className="comments">
               <img

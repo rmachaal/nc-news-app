@@ -2,7 +2,7 @@ import { useLocation } from "react-router-dom";
 import ArticleBlockSmall from "./ArticleBlockSmall";
 import ErrorPage from "./ErrorPage";
 
-function ArticlesByTopic({ articles, topics }) {
+function ArticlesByTopic({ articles, topics, users }) {
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
   const topic = queryParams.get("topic");
@@ -20,7 +20,7 @@ function ArticlesByTopic({ articles, topics }) {
       <h3 className="topic-title">{topic}</h3>
       <ul>
         {articlesByTopic.map((article, index) => {
-          return <ArticleBlockSmall key={index} article={article} />;
+          return <ArticleBlockSmall key={index} article={article} users={users} />;
         })}
       </ul>
     </>

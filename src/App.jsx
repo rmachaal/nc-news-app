@@ -38,12 +38,22 @@ function App() {
         <Route
           path="/"
           element={
-            <LandingPage articles={articles} setArticles={setArticles} />
+            <LandingPage
+              articles={articles}
+              setArticles={setArticles}
+              users={users}
+            />
           }
         />
-        <Route 
+        <Route
           path="/articles"
-          element={<ArticlesByTopic articles={articles} topics={topics} />}
+          element={
+            <ArticlesByTopic
+              articles={articles}
+              topics={topics}
+              users={users}
+            />
+          }
         />
         <Route
           path="/articles/:article_id"

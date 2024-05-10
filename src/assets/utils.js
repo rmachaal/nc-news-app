@@ -5,8 +5,12 @@ function formatDate(apiDate) {
   return formattedDate;
 }
 
-function fetchTopics() {
-  
+function findUser(item, users) {
+  const userIndex = users.findIndex((user) => {
+    return user.username === item.author;
+  });
+  const user = users[userIndex];
+  return user;
 }
 
-export default formatDate
+export { formatDate, findUser };

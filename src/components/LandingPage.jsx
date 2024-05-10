@@ -2,7 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import ArticleBlock from "./ArticleBlock";
 
-function LandingPage({ articles, setArticles }) {
+function LandingPage({ articles, setArticles, users }) {
   const [filter, setFilter] = useState("created_at");
   const [order, setOrder] = useState("DESC");
   const [loading, setLoading] = useState(false);
@@ -49,7 +49,7 @@ function LandingPage({ articles, setArticles }) {
       </div>
       <ul>
         {articles.map((article, index) => {
-          return <ArticleBlock key={index} article={article} />;
+          return <ArticleBlock key={index} article={article} users={users} />;
         })}
       </ul>
     </>
