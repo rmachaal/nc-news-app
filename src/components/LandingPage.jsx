@@ -29,16 +29,33 @@ function LandingPage({ articles, setArticles, users }) {
     setOrder(e.target.value);
   }
 
-  if (loading) {
-    return <h3>Loading ...</h3>;
-  }
-
   function handleLoadMore(event) {
     event.preventDefault();
+    const currentScrollPosition = window.scrollY;
+
+    setLoading(true);
+
+    axios
+      .get(
+        `https://news-api-project-hj1l.onrender.com/api/articles?limit=${
+          limit + 3
+        }&&sort_by=${filter}&&order=${order}`
+      )
+      .then((response) => {
+        const { selectedArticles } = response.data;
+        setArticles(selectedArticles);
+        setLoading(false);
+        window.scrollTo(0, currentScrollPosition);
+      });
+
     setLimit((currLimit) => {
       return currLimit + 3;
     });
   }
+
+  // if (loading) {
+  //   return <h3>Loading ...</h3>;
+  // }
 
   return (
     <>
@@ -60,7 +77,13 @@ function LandingPage({ articles, setArticles, users }) {
           return <ArticleBlock key={index} article={article} users={users} />;
         })}
       </ul>
-      <button onClick={handleLoadMore}>Load more</button>
+      <div>
+        {loading ? (
+          <p>Loading ...</p>
+        ) : (
+          <button onClick={handleLoadMore}>Load more</button>
+        )}
+      </div>
     </>
   );
 }
