@@ -1,10 +1,16 @@
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  --primary-color: #6200ea;
+  --secondary-color: #03dac5;
+  --background-color: #ffffff;
+  --text-color: #333333;
+  --hover-text-color: #6200ea;
+
+  font-family: 'Poppins', system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
-  color: rgba(0, 0, 0, 0.87);
-  background-color: #f7f7f7;
+  color: var(--text-color);
+  background-color: var(--background-color);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -27,10 +33,10 @@ button {
   font-weight: 500;
   font-family: inherit;
   background-color: #cdcae1;
-  transition: border-color 0.25s;
+  transition: all 0.25s;
 }
 button:hover {
-  border: 1px solid #3b3f96;
+  border: 1px solid var(--primary-color);
 }
 button:disabled{
   pointer-events: none;

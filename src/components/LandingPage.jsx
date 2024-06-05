@@ -6,19 +6,20 @@ function LandingPage({ articles, setArticles, users }) {
   const [filter, setFilter] = useState("created_at");
   const [order, setOrder] = useState("DESC");
   const [loading, setLoading] = useState(false);
+  const [limit, setLimit] = useState(5);
 
   useEffect(() => {
     setLoading(true);
     axios
       .get(
-        `https://news-api-project-hj1l.onrender.com/api/articles?sort_by=${filter}&&order=${order}`
+        `https://news-api-project-hj1l.onrender.com/api/articles?limit=${limit}&&sort_by=${filter}&&order=${order}`
       )
       .then((response) => {
-        const { articles } = response.data;
-        setArticles(articles);
+        const { selectedArticles } = response.data;
+        setArticles(selectedArticles);
         setLoading(false);
       });
-  }, [filter, order]);
+  }, [limit, filter, order]);
 
   function handleFilter(e) {
     setFilter(e.target.value);
@@ -30,6 +31,13 @@ function LandingPage({ articles, setArticles, users }) {
 
   if (loading) {
     return <h3>Loading ...</h3>;
+  }
+
+  function handleLoadMore(event) {
+    event.preventDefault();
+    setLimit((currLimit) => {
+      return currLimit + 3;
+    });
   }
 
   return (
@@ -52,6 +60,7 @@ function LandingPage({ articles, setArticles, users }) {
           return <ArticleBlock key={index} article={article} users={users} />;
         })}
       </ul>
+      <button onClick={handleLoadMore}>Load more</button>
     </>
   );
 }

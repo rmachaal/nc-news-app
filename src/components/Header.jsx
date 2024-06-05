@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import user from "../assets/hardcodedUser";
 
 function Header({ topics, setTopics }) {
-
   return (
     <>
       <header>
@@ -14,7 +13,7 @@ function Header({ topics, setTopics }) {
           </Link>
           <div className="user-icon">
             <img src={user.avatar_url} alt="User avatar." />
-            <h2>{user.name}</h2>
+            <h2>Hi, {user.name}</h2>
           </div>
         </div>
         <nav>

@@ -6,8 +6,8 @@ function ArticleBlock({ article, users }) {
   const format = { year: "numeric", month: "long", day: "numeric" };
   const formattedDate = date.toLocaleDateString("en-US", format);
 
-  const user = findUser(article, users)
-  
+  const user = findUser(article, users);
+
   return (
     <>
       <li className="article-block">
@@ -23,7 +23,6 @@ function ArticleBlock({ article, users }) {
           <p>Comments ({article.comment_count})</p>
           <p>{article.votes} votes</p>
         </div>
-
         <div className="author-date">
           <p>{user.name}</p>
           <p>{formattedDate}</p>
