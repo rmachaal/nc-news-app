@@ -10,6 +10,7 @@
   gap: 2rem;
 }
 
+
 .main-content {
   grid-column: 1 / 2;
 }
@@ -256,14 +257,6 @@ select {
 
 .article-title-link:hover {
   color: var(--hover-text-color);
-}
-
-.title-comments-votes {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: baseline;
-  font-weight: 600;
 }
 
 .author-date {
