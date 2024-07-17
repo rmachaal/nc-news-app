@@ -9,7 +9,7 @@ function Header({ topics, setTopics }) {
       <header>
         <div className="header">
           <Link to={"/"}>
-            <h1>Northcoders' News</h1>
+            <h1>★ Northcoders' News</h1>
           </Link>
           <div className="user-icon">
             <img src={user.avatar_url} alt="User avatar." />

@@ -9,7 +9,6 @@ import axios from "axios";
 import ErrorPage from "./components/ErrorPage";
 
 function App() {
-  const [articles, setArticles] = useState([]);
   const [topics, setTopics] = useState([]);
   const [users, setUsers] = useState([]);
 
@@ -39,8 +38,6 @@ function App() {
           path="/"
           element={
             <LandingPage
-              articles={articles}
-              setArticles={setArticles}
               users={users}
             />
           }
@@ -49,8 +46,6 @@ function App() {
           path="/articles"
           element={
             <ArticlesByTopic
-              articles={articles}
-              topics={topics}
               users={users}
             />
           }

@@ -1,88 +1,57 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import ArticleBlock from "./ArticleBlock";
+import FeaturedSidebar from "./FeaturedSidebar";
+import { getRecentArticles } from "../services/getRecentArticles";
 
-function LandingPage({ articles, setArticles, users }) {
-  const [filter, setFilter] = useState("created_at");
-  const [order, setOrder] = useState("DESC");
+function LandingPage({ users }) {
+  const [articles, setArticles] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [limit, setLimit] = useState(5);
+  const filter = "created_at";
+  const order = "DESC";
+  const limit = 5;
 
   useEffect(() => {
-    setLoading(true);
-    axios
-      .get(
-        `https://news-api-project-hj1l.onrender.com/api/articles?limit=${limit}&&sort_by=${filter}&&order=${order}`
-      )
-      .then((response) => {
-        const { selectedArticles } = response.data;
-        setArticles(selectedArticles);
+    const fetchArticles = async () => {
+      setLoading(true);
+      try {
+        const data = await getRecentArticles(limit, filter, order);
+        setArticles(data);
+      } catch (error) {
+        console.log("error fetching articles");
+      } finally {
         setLoading(false);
-      });
+      }
+    };
+    fetchArticles();
   }, [limit, filter, order]);
 
-  function handleFilter(e) {
-    setFilter(e.target.value);
+  if (loading) {
+    return <h3>Loading ...</h3>;
   }
-
-  function handleOrder(e) {
-    setOrder(e.target.value);
-  }
-
-  function handleLoadMore(event) {
-    event.preventDefault();
-    const currentScrollPosition = window.scrollY;
-
-    setLoading(true);
-
-    axios
-      .get(
-        `https://news-api-project-hj1l.onrender.com/api/articles?limit=${
-          limit + 3
-        }&&sort_by=${filter}&&order=${order}`
-      )
-      .then((response) => {
-        const { selectedArticles } = response.data;
-        setArticles(selectedArticles);
-        setLoading(false);
-        window.scrollTo(0, currentScrollPosition);
-      });
-
-    setLimit((currLimit) => {
-      return currLimit + 3;
-    });
-  }
-
-  // if (loading) {
-  //   return <h3>Loading ...</h3>;
-  // }
 
   return (
     <>
-      <div className="article-filter">
-        <label htmlFor="article-filter">Filter</label>
-        <select id="article-filter" value={filter} onChange={handleFilter}>
-          <option value="created_at">date</option>
-          <option value="comment_count">comment count</option>
-          <option value="votes">votes</option>
-        </select>
-        <label htmlFor="order">Order</label>
-        <select id="order" value={order} onChange={handleOrder}>
-          <option value="DESC">descending</option>
-          <option value="ASC">ascending</option>
-        </select>
-      </div>
-      <ul>
-        {articles.map((article, index) => {
-          return <ArticleBlock key={index} article={article} users={users} />;
-        })}
-      </ul>
-      <div>
-        {loading ? (
-          <p>Loading ...</p>
-        ) : (
-          <button onClick={handleLoadMore}>Load more</button>
-        )}
+      <div className="content-grid">
+        <main className="main-content">
+          <div className="featured-article">
+            {articles.length > 0 && (
+              <ArticleBlock
+                article={articles[0]}
+                users={users}
+                featured={true}
+              />
+            )}
+          </div>
+          <ul className="article-list">
+            {articles.slice(1).map((article, index) => {
+              return (
+                <ArticleBlock key={index} article={article} users={users} />
+              );
+            })}
+          </ul>
+        </main>
+        <FeaturedSidebar users={users} />
       </div>
     </>
   );
