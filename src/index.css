@@ -1,6 +1,6 @@
 :root {
   --primary-color: #e9e52b;
-  --secondary-color: #e9e62b8f;
+  --secondary-color: #e9e62b6a;
   --background-color: #ffffff;
   --text-color: #212121;
   --hover-text-color: #bbb816;
@@ -16,10 +16,6 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-.comment-button{
-  margin-left: auto;
 }
 
 button {

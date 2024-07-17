@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { findUser } from "../assets/utils";
+import "../styles/ArticleBlockSmall.css";
 
 function ArticleBlockSmall({ article, users }) {
   const date = new Date(article.created_at);

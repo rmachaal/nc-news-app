@@ -1,0 +1,129 @@
+.topic {
+  color: var(--primary-color);
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 1em;
+}
+
+.article-title-individual {
+  text-align: center;
+}
+
+.article-details-individual {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.article-details-individual p {
+  margin-right: 35px;
+}
+
+.article-user-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50px;
+  object-fit: cover;
+  padding: 5px;
+  border: 1px solid grey;
+  margin: 0;
+  margin-right: 15px;
+}
+
+.author-date-individual {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.article-votes {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: left;
+}
+
+.article-vote-button {
+  background: transparent;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-right: 5px;
+  width: 30px;
+  height: 30px;
+}
+
+.comments-header {
+  text-align: left;
+  margin: 0;
+  margin-top: 30px;
+}
+
+.comments {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  font-size: 0.8em;
+  text-align: left;
+  margin-top: 10px;
+  padding-bottom: 15px;
+  border-bottom: 0.5px solid rgb(173, 173, 173);
+}
+
+.comments-user-icon {
+  width: 25px;
+  height: 25px;
+  border-radius: 50px;
+  object-fit: cover;
+  padding: 3px;
+  border: 1px solid grey;
+}
+
+.comments-user-delete {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.comments-delete-button {
+  margin: 0;
+  background-color: transparent;
+  font-size: 0.7em;
+  width: 50px;
+  height: 20px;
+  padding: 0px;
+}
+.comments-delete-button:hover {
+  color: var(--hover-text-color);
+}
+
+.comments-details {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.75em;
+  margin-top: 5px;
+  margin-left: 10px;
+}
+
+.comments-votes-date {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 5px;
+}
+
+.comment-form {
+  display: flex;
+  flex-direction: column;
+  color: rgb(75, 46, 189);
+  font-size: 0.8em;
+  font-weight: 500;
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+.comment-button {
+  margin-left: auto;
+  width: 50px;
+  height: 25px;
+}

@@ -1,8 +1,8 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
 import ArticleBlock from "./ArticleBlock";
 import FeaturedSidebar from "./FeaturedSidebar";
 import { getRecentArticles } from "../services/getRecentArticles";
+import "../styles/LandingPage.css"
 
 function LandingPage({ users }) {
   const [articles, setArticles] = useState([]);

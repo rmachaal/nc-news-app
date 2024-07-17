@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { findUser } from "../assets/utils";
 import { getTopArticles } from "../services/getTopArticles";
 import { useEffect, useState } from "react";
+import "../styles/FeaturedSidebar.css";
 
 function FeaturedSidebar({ users }) {
   const [topArticles, setTopArticles] = useState([]);

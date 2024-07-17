@@ -3,6 +3,7 @@ import ArticleBlockSmall from "./ArticleBlockSmall";
 import ErrorPage from "./ErrorPage";
 import { getArticlesByTopic } from "../services/getArticlesByTopic";
 import { useEffect, useState } from "react";
+import "../styles/ArticlesByTopic.css";
 
 function ArticlesByTopic({ users }) {
   const location = useLocation();

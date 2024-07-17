@@ -5,6 +5,7 @@ import { formatDate, findUser } from "../assets/utils";
 import PostComment from "./PostComment";
 import hardcodedUser from "../assets/hardcodedUser";
 import ErrorPage from "./ErrorPage";
+import "../styles/Article.css";
 
 function Article({ users }) {
   const { article_id } = useParams();
