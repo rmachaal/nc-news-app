@@ -6,7 +6,6 @@ function ArticleBlock({ article, users, featured = false }) {
   const date = new Date(article.created_at);
   const format = { year: "numeric", month: "long", day: "numeric" };
   const formattedDate = date.toLocaleDateString("en-US", format);
-
   const user = findUser(article, users);
 
   return (

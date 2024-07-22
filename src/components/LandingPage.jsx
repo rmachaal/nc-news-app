@@ -2,21 +2,18 @@ import { useEffect, useState } from "react";
 import ArticleBlock from "./ArticleBlock";
 import FeaturedSidebar from "./FeaturedSidebar";
 import { getRecentArticles } from "../services/getRecentArticles";
-import "../styles/LandingPage.css"
+import "../styles/LandingPage.css";
 
 function LandingPage({ users }) {
-  const [articles, setArticles] = useState([]);
+  const [recentArticles, setRecentArticles] = useState([]);
   const [loading, setLoading] = useState(false);
-  const filter = "created_at";
-  const order = "DESC";
-  const limit = 5;
 
   useEffect(() => {
     const fetchArticles = async () => {
       setLoading(true);
       try {
-        const data = await getRecentArticles(limit, filter, order);
-        setArticles(data);
+        const data = await getRecentArticles();
+        setRecentArticles(data);
       } catch (error) {
         console.log("error fetching articles");
       } finally {
@@ -24,7 +21,7 @@ function LandingPage({ users }) {
       }
     };
     fetchArticles();
-  }, [limit, filter, order]);
+  }, []);
 
   if (loading) {
     return <h3>Loading ...</h3>;
@@ -32,27 +29,19 @@ function LandingPage({ users }) {
 
   return (
     <>
-      <div className="content-grid">
-        <main className="main-content">
-          <div className="featured-article">
-            {articles.length > 0 && (
-              <ArticleBlock
-                article={articles[0]}
-                users={users}
-                featured={true}
-              />
-            )}
-          </div>
-          <ul className="article-list">
-            {articles.slice(1).map((article, index) => {
-              return (
-                <ArticleBlock key={index} article={article} users={users} />
-              );
-            })}
-          </ul>
-        </main>
+      <main className="content-grid">
+        <div className="featured-article">
+          {recentArticles.slice(0, 2).map((article, index) => {
+            return <ArticleBlock key={index} article={article} users={users} />;
+          })}
+        </div>
+        <ul className="article-list">
+          {recentArticles.slice(2).map((article, index) => {
+            return <ArticleBlock key={index} article={article} users={users} />;
+          })}
+        </ul>
         <FeaturedSidebar users={users} />
-      </div>
+      </main>
     </>
   );
 }
